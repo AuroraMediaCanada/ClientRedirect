@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            background-color: #03023c;
+            color: white;
+        }
+
+        .message {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="message" id="countdown">
+        You will be redirected in 3...
+    </div>
+
+    <script>
+        const redirectURL = "https://www.youtube.com"; // Change this URL
+        let seconds = 3;
+
+        const countdown = document.getElementById("countdown");
+
+        const timer = setInterval(function () {
+            seconds--;
+
+            if (seconds > 0) {
+                countdown.textContent = "You will be redirected in " + seconds + "...";
+            } else {
+                clearInterval(timer);
+                countdown.textContent = "Redirecting now...";
+                window.location.href = redirectURL;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
